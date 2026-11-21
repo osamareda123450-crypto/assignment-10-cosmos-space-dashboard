@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>COSMOS - Space Explorer Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-logo">🚀</div>
+        <div>
+          <h1>COSMOS</h1>
+          <p>Space Dashboard</p>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <button class="nav-btn active" data-section="today">
+          <span>🌌</span>
+          <span>Today in Space</span>
+        </button>
+        <button class="nav-btn" data-section="launches">
+          <span>🛸</span>
+          <span>Launches</span>
+        </button>
+        <button class="nav-btn" data-section="planets">
+          <span>🪐</span>
+          <span>Planets</span>
+        </button>
+      </nav>
+
+      <div class="user-card">
+        <div class="user-avatar">SE</div>
+        <div>
+          <p class="user-name">Space Explorer</p>
+          <p class="user-email">explorer@cosmos.space</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Area -->
+    <div class="main-wrapper">
+      <header class="topbar">
+        <div>
+          <h2>Space Explorer Dashboard</h2>
+          <p>Real-time space data from NASA &amp; SpaceDevs</p>
+        </div>
+
+        <div class="status-pills">
+          <span class="pill live">● Live Data</span>
+          <span class="pill">🪐 8 Planets</span>
+          <span class="pill">🚀 10 Launches</span>
+        </div>
+      </header>
+
+      <main class="content">
+        <!-- Section 1: Today in Space -->
+        <section id="today" class="section active">
+          <div class="section-header">
+            <h3>Today in Space</h3>
+            <p>Astronomy Picture of the Day</p>
+          </div>
+
+          <div class="apod-grid">
+            <div class="card apod-media">
+              <img
+                id="apod-img"
+                src="https://storage.googleapis.com/uxpilot-auth.appspot.com/d982a2d8e0-19ba0b138aa6ad763930.png"
+                alt="Space view"
+              />
+            </div>
+
+            <div class="card apod-info">
+              <h4 id="apod-title">Earth From Orbit</h4>
+              <p id="apod-desc">
+                Earth is the third planet from the Sun and the only astronomical object known to harbor life.
+              </p>
+
+              <div class="meta-list">
+                <div class="meta-row">
+                  <span>Date</span>
+                  <span id="apod-date">2026-11-21</span>
+                </div>
+                <div class="meta-row">
+                  <span>Media Type</span>
+                  <span>Image</span>
+                </div>
+                <div class="meta-row">
+                  <span>Source</span>
+                  <span>NASA APOD</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 2: Launches -->
+        <section id="launches" class="section">
+          <div class="section-header">
+            <h3>Upcoming Launches</h3>
+            <p>Real-time tracking of the next missions to space</p>
+          </div>
+
+          <div id="launches-list" class="cards-grid"></div>
+        </section>
+
+        <!-- Section 3: Planets & Comparison -->
+        <section id="planets" class="section">
+          <div class="section-header">
+            <h3>Explore Our Solar System</h3>
+            <p>Discover the planets and celestial bodies in our cosmic neighborhood</p>
+          </div>
+
+          <div class="card planet-feature">
+            <div class="planet-top">
+              <img
+                src="https://storage.googleapis.com/uxpilot-auth.appspot.com/d982a2d8e0-19ba0b138aa6ad763930.png"
+                alt="Earth"
+              />
+              <div>
+                <h4>Earth</h4>
+                <p>
+                  Earth is the third planet from the Sun and the only astronomical object known to harbor life.
+                </p>
+              </div>
+            </div>
+
+            <div class="stats-grid">
+              <div class="stat-box"><span>Semimajor Axis</span><strong>149.6M km</strong></div>
+              <div class="stat-box"><span>Mean Radius</span><strong>6,371 km</strong></div>
+              <div class="stat-box"><span>Orbital Period</span><strong>365.25 days</strong></div>
+              <div class="stat-box"><span>Gravity</span><strong>9.8 m/s²</strong></div>
+            </div>
+          </div>
+
+          <div class="card table-card">
+            <h4>Planet Comparison</h4>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Planet</th>
+                    <th>Distance (AU)</th>
+                    <th>Diameter (km)</th>
+                    <th>Mass (Earth=1)</th>
+                    <th>Orbital Period</th>
+                    <th>Moons</th>
+                    <th>Type</th>
+                  </tr>
+                </thead>
+                <tbody id="planets-table-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
